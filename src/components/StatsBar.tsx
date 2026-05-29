@@ -57,11 +57,7 @@ export function StatsBar() {
           transition={{ delay: 0.9 + i * 0.08 }}
           className="glass rounded-xl px-4 py-5 text-center transition hover:border-cyan-500/30 hover:shadow-[0_0_30px_-10px_rgba(34,211,238,0.4)]"
         >
-          <AnimatedStat
-            value={stat.value}
-            suffix={stat.suffix}
-            decimals={stat.decimals}
-          />
+          <AnimatedStat value={stat.value} suffix={stat.suffix} />
           <p className="mt-1 text-xs text-slate-500">{stat.label}</p>
         </motion.div>
       ))}

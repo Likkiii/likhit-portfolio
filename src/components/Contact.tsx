@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Mail, Send } from "lucide-react";
+import { Download, Mail, Send } from "lucide-react";
 import { profile } from "../data/profile";
 import { SectionHeading } from "./SectionHeading";
-import { GitHubIcon, LinkedInIcon } from "./Icons";
+import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "./Icons";
 import { MagneticButton } from "./MagneticButton";
 
 export function Contact() {
@@ -56,6 +56,8 @@ export function Contact() {
               {[
                 { href: profile.links.linkedin, Icon: LinkedInIcon, label: "LinkedIn" },
                 { href: profile.links.github, Icon: GitHubIcon, label: "GitHub" },
+                { href: profile.links.leetcode, Icon: LeetCodeIcon, label: "LeetCode" },
+                { href: profile.links.resume, Icon: Download, label: "Résumé" },
                 { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
               ].map(({ href, Icon, label }) => (
                 <motion.a

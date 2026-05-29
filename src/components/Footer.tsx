@@ -10,7 +10,7 @@ export function Footer() {
           © {year} {profile.name}. Built with React, Vite & Tailwind.
         </p>
         <p className="font-mono text-xs text-slate-600">
-          SDE @ Exotel · VIT CSE &apos;24
+          SDE-I @ Exotel · VIT CSE &apos;24
         </p>
       </div>
     </footer>

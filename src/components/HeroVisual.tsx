@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 
 const lines = [
-  { text: "const engineer = {", delay: 0 },
+  { text: "const likhit = {", delay: 0 },
   { text: '  role: "SDE-1 @ Exotel",', delay: 0.1, accent: true },
-  { text: '  stack: ["React", "K8s", "pgvector"],', delay: 0.2 },
-  { text: "  building: [", delay: 0.3 },
-  { text: '    "real-time pipelines",', delay: 0.4, accent: true },
-  { text: '    "LLM / ASR systems",', delay: 0.5, accent: true },
-  { text: '    "semantic search"', delay: 0.6, accent: true },
+  { text: '  stack: ["Java", "React", "K8s"],', delay: 0.2 },
+  { text: "  loves: [", delay: 0.3 },
+  { text: '    "building things",', delay: 0.4, accent: true },
+  { text: '    "breaking PRs",', delay: 0.5, accent: true },
+  { text: '    "running fast"', delay: 0.6, accent: true },
   { text: "  ],", delay: 0.7 },
-  { text: "  status: available ✓", delay: 0.8, accent: true },
+  { text: "  coffee: true ☕", delay: 0.8, accent: true },
   { text: "};", delay: 0.9 },
 ];
 
 const floatingTags = [
   { label: "React", x: "88%", y: "8%", delay: 0 },
-  { label: "K8s", x: "-8%", y: "35%", delay: 0.2 },
-  { label: "Gen AI", x: "92%", y: "55%", delay: 0.4 },
-  { label: "pgvector", x: "-5%", y: "78%", delay: 0.6 },
+  { label: "Java", x: "-8%", y: "35%", delay: 0.2 },
+  { label: "K8s", x: "92%", y: "55%", delay: 0.4 },
+  { label: "TypeScript", x: "-5%", y: "78%", delay: 0.6 },
 ];
 
 export function HeroVisual() {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Sparkles } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "./Icons";
+import { ArrowDown, Download, Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "./Icons";
 import { profile } from "../data/profile";
 import { useTypewriter } from "../hooks/useTypewriter";
 import { HeroVisual } from "./HeroVisual";
@@ -38,21 +38,7 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-4 py-1.5 font-mono text-xs text-cyan-300"
-          >
-            <Sparkles size={14} className="text-cyan-400" />
-            Available for opportunities
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-          </motion.div>
-
-          <p className="mb-3 font-mono text-sm text-slate-500">Hello, world — I&apos;m</p>
+          <p className="mb-3 mt-2 font-mono text-sm text-slate-500">Hello, world — I&apos;m</p>
 
           <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
             <AnimatedName name={first} />
@@ -97,13 +83,13 @@ export function Hero() {
               View my work →
             </MagneticButton>
             <MagneticButton
-              href={profile.links.linkedin}
+              href={profile.links.resume}
               external
               className="glass rounded-full px-5 py-3.5 text-sm text-slate-200 hover:bg-white/10"
             >
               <span className="flex items-center gap-2">
-                <LinkedInIcon size={18} />
-                LinkedIn
+                <Download size={18} />
+                Résumé
               </span>
             </MagneticButton>
           </motion.div>
@@ -117,6 +103,7 @@ export function Hero() {
             {[
               { href: profile.links.github, Icon: GitHubIcon, label: "GitHub" },
               { href: profile.links.linkedin, Icon: LinkedInIcon, label: "LinkedIn" },
+              { href: profile.links.leetcode, Icon: LeetCodeIcon, label: "LeetCode" },
               { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
             ].map(({ href, Icon, label }) => (
               <motion.a

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Mail } from "lucide-react";
+import { MapPin, Briefcase, Mail } from "lucide-react";
 import { profile, interests } from "../data/profile";
 import { SectionHeading } from "./SectionHeading";
 
 const facts = [
   { icon: MapPin, label: "Location", value: profile.location },
-  { icon: GraduationCap, label: "Education", value: "B.Tech CSE — VIT '24" },
+  { icon: Briefcase, label: "Current", value: "SDE-I @ Exotel" },
   { icon: Mail, label: "Email", value: profile.email },
 ];
 
@@ -17,7 +17,7 @@ export function About() {
           id="about"
           label="01 — About"
           title="A bit about me"
-          subtitle="Engineer by day, athlete & builder by passion."
+          subtitle="Engineer by day, athlete & dancer by night."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
@@ -28,7 +28,7 @@ export function About() {
             className="glass rounded-2xl p-8"
           >
             {profile.about.split("\n\n").map((para) => (
-              <p key={para.slice(0, 24)} className="mb-4 leading-relaxed text-slate-300 last:mb-0">
+              <p key={para.slice(0, 24)} className="mb-4 text-lg leading-relaxed text-slate-300 last:mb-0">
                 {para}
               </p>
             ))}
@@ -60,15 +60,21 @@ export function About() {
               viewport={{ once: true }}
               className="glass rounded-xl p-5"
             >
-              <p className="mb-3 text-xs uppercase tracking-wider text-slate-500">Interests</p>
-              <div className="flex flex-wrap gap-2">
-                {interests.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300"
+              <p className="mb-3 text-xs uppercase tracking-wider text-slate-500">Things I love</p>
+              <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+                {interests.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.03 }}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    className="flex cursor-default flex-col items-center gap-1 rounded-xl border border-white/5 bg-white/5 p-3 text-center transition hover:border-cyan-500/30 hover:bg-cyan-500/10"
                   >
-                    {item}
-                  </span>
+                    <span className="text-xl">{item.emoji}</span>
+                    <span className="text-[11px] text-slate-400">{item.label}</span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

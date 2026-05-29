@@ -30,30 +30,19 @@ All copy, experience, projects, and skills live in:
 src/data/profile.ts
 ```
 
-## Deploy to GitHub Pages
+## Deploy (custom domain: likhit-ajeesh.com)
 
-### Replace `likkiii.github.io` (user site)
+Deployment is automated via GitHub Actions (`.github/workflows/deploy.yml`) on every push to `main`:
 
-1. Create or use repo named **`Likkiii.github.io`**
-2. Copy this project into that repo
-3. Build and deploy:
+1. Push to `main` — the workflow builds with Node 22 and publishes `dist/` to GitHub Pages.
+2. In the repo's **Settings → Pages**, set the custom domain to `likhit-ajeesh.com`.
+   `public/CNAME` already pins this so it survives each deploy.
+3. Point DNS at GitHub Pages:
+   - Apex `likhit-ajeesh.com` → A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `www` → CNAME to `<username>.github.io`
+4. Enable **Enforce HTTPS** once the certificate is provisioned.
 
-```bash
-npm run build
-npx gh-pages -d dist
-```
-
-`vite.config.ts` uses `base: '/'` by default — correct for `username.github.io`.
-
-### Project site (`github.io/likhit-portfolio`)
-
-```bash
-npm install -D gh-pages cross-env
-set GITHUB_PAGES=true && npm run build
-npx gh-pages -d dist
-```
-
-Or use the `build:pages` script after installing `cross-env`.
+`vite.config.ts` uses `base: '/'`, which is correct for a root custom domain.
 
 ## Build
 
