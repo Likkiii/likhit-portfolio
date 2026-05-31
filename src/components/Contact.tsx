@@ -43,7 +43,8 @@ export function Contact() {
 
             <div className="relative mt-8 flex justify-center px-2">
               <MagneticButton
-                href={`mailto:${profile.email}`}
+                href={`https://mail.google.com/mail/?view=cm&to=${profile.email}`}
+                external
                 className="btn-shimmer glow-ring inline-flex max-w-full items-center gap-2 rounded-full px-5 py-3.5 text-xs font-bold text-[#07070b] sm:px-8 sm:py-4 sm:text-sm"
               >
                 <Send size={18} className="shrink-0" />
@@ -58,13 +59,13 @@ export function Contact() {
                 { href: profile.links.github, Icon: GitHubIcon, label: "GitHub" },
                 { href: profile.links.leetcode, Icon: LeetCodeIcon, label: "LeetCode" },
                 { href: profile.links.resume, Icon: Download, label: "Résumé" },
-                { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
+                { href: `https://mail.google.com/mail/?view=cm&to=${profile.email}`, Icon: Mail, label: "Email" },
               ].map(({ href, Icon, label }) => (
                 <motion.a
                   key={label}
                   href={href}
-                  target={label !== "Email" ? "_blank" : undefined}
-                  rel={label !== "Email" ? "noopener noreferrer" : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -3 }}
                   className="flex items-center gap-2 text-slate-400 transition hover:text-cyan-400"
                 >

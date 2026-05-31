@@ -6,7 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 const facts = [
   { icon: MapPin, label: "Location", value: profile.location },
   { icon: Briefcase, label: "Current", value: profile.title },
-  { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+  { icon: Mail, label: "Email", value: profile.email, href: `https://mail.google.com/mail/?view=cm&to=${profile.email}` },
 ];
 
 export function About() {
@@ -79,6 +79,8 @@ export function About() {
                     {href ? (
                       <a
                         href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-1 block truncate text-sm text-white transition hover:text-cyan-300"
                       >
                         {value}

@@ -84,7 +84,9 @@ export function Navbar() {
         </ul>
 
         <motion.a
-          href={`mailto:${profile.email}`}
+          href={`https://mail.google.com/mail/?view=cm&to=${profile.email}`}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.98 }}
           className="hidden rounded-full border border-cyan-500/40 bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-4 py-2 text-sm font-medium text-cyan-300 transition hover:from-cyan-500/25 hover:to-violet-500/25 md:inline-flex"
@@ -137,7 +139,9 @@ export function Navbar() {
               ))}
               <li className="mt-2 border-t border-white/10 pt-3">
                 <a
-                  href={`mailto:${profile.email}`}
+                  href={`https://mail.google.com/mail/?view=cm&to=${profile.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block rounded-full border border-cyan-500/40 bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-4 py-3 text-center text-sm font-medium text-cyan-300"
                   onClick={() => setOpen(false)}
                 >

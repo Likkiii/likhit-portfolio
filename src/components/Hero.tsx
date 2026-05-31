@@ -103,13 +103,13 @@ export function Hero() {
               { href: profile.links.github, Icon: GitHubIcon, label: "GitHub" },
               { href: profile.links.linkedin, Icon: LinkedInIcon, label: "LinkedIn" },
               { href: profile.links.leetcode, Icon: LeetCodeIcon, label: "LeetCode" },
-              { href: `mailto:${profile.email}`, Icon: Mail, label: "Email" },
+              { href: `https://mail.google.com/mail/?view=cm&to=${profile.email}`, Icon: Mail, label: "Email" },
             ].map(({ href, Icon, label }) => (
               <motion.a
                 key={label}
                 href={href}
-                target={label !== "Email" ? "_blank" : undefined}
-                rel={label !== "Email" ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -2 }}
                 className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-white/5 hover:text-cyan-400"
                 aria-label={label}
