@@ -13,7 +13,6 @@ export function Contact() {
           id="contact"
           label="06 — Contact"
           title="Let's connect"
-          subtitle="Open to interesting conversations, collaborations, and opportunities."
         />
 
         <motion.div
@@ -22,7 +21,7 @@ export function Contact() {
           viewport={{ once: true }}
           className="gradient-border relative overflow-hidden rounded-3xl"
         >
-          <div className="gradient-border-inner relative p-10 text-center md:p-16">
+          <div className="gradient-border-inner relative p-6 text-center sm:p-10 md:p-16">
             <motion.div
               className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-cyan-500/20 blur-[80px]"
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -35,20 +34,21 @@ export function Contact() {
             />
 
             <h3 className="relative font-display text-3xl font-bold text-white sm:text-5xl">
-              Want to work{" "}
-              <span className="gradient-text-animated">together?</span>
+              Always up for a{" "}
+              <span className="gradient-text-animated">good chat</span>
             </h3>
-            <p className="relative mx-auto mt-4 max-w-lg text-slate-400">
-              Drop me an email or connect on LinkedIn — I&apos;d love to hear from you.
+            <p className="relative mx-auto mt-4 max-w-md text-slate-400">
+              Tech, sports, products, startups — or any cool ideas 🚀
             </p>
 
-            <div className="relative mt-8 flex justify-center">
+            <div className="relative mt-8 flex justify-center px-2">
               <MagneticButton
                 href={`mailto:${profile.email}`}
-                className="btn-shimmer glow-ring inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-[#07070b]"
+                className="btn-shimmer glow-ring inline-flex max-w-full items-center gap-2 rounded-full px-5 py-3.5 text-xs font-bold text-[#07070b] sm:px-8 sm:py-4 sm:text-sm"
               >
-                <Send size={18} />
-                {profile.email}
+                <Send size={18} className="shrink-0" />
+                <span className="truncate sm:hidden">Email me</span>
+                <span className="hidden truncate sm:inline">{profile.email}</span>
               </MagneticButton>
             </div>
 

@@ -16,15 +16,9 @@ export const profile = {
     leetcode: "https://leetcode.com/u/likkiii/",
     resume: "/Likhit_Ajeesh_Resume.pdf",
   },
-  stats: [
-    { value: 2, suffix: "+", label: "Yrs Experience" },
-    { value: 5, suffix: "+", label: "Production Services" },
-    { value: 1800, suffix: "+", label: "Event Users Served" },
-    { value: 3, suffix: "×", label: "Faster Releases" },
-  ],
-  about: `Software engineer who loves building things end to end — from backend systems handling millions of events to frontends that people actually enjoy using. I work on real-time platforms, infrastructure automation, and everything in between.
+  about: `I'm a software engineer who enjoys building things end to end — from scalable backend systems and AI-powered workflows to products people actually enjoy using.
 
-Outside of code, I'm a national-level sprinter, a dancer, and someone who's always chasing the next thing to learn. I like clean architecture, fast deploys, and solving hard problems with simple solutions.`,
+Outside of engineering, I enjoy sprinting, dancing, cycling, and the occasional K-drama binge. I'm a former national-level sprinter and a firm believer that curiosity is a skill worth practicing.`,
 };
 
 export interface ExperienceItem {
@@ -98,16 +92,16 @@ export const education = [
 
 export const skillCategories = [
   {
-    name: "Languages & Frameworks",
-    skills: ["Java", "Spring Boot", "Python", "FastAPI", "Celery", "JavaScript", "TypeScript", "React", "Next.js", "Vue", "Node.js", "Kafka", "Redux", "Tailwind CSS"],
+    name: "Backend",
+    skills: ["Java", "Spring Boot", "Python", "FastAPI", "Kafka", "PostgreSQL", "Redis", "Beanstalkd"],
   },
   {
-    name: "Databases & Infrastructure",
-    skills: ["PostgreSQL", "pgvector", "TimescaleDB", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Helm", "ArgoCD", "Terraform", "Ansible", "AWS", "ECR"],
+    name: "Cloud & Infrastructure",
+    skills: ["Docker", "Kubernetes", "Helm", "ArgoCD", "Terraform", "AWS", "CI/CD", "GitOps"],
   },
   {
-    name: "Practices & Tools",
-    skills: ["System Design", "Microservices", "CI/CD", "GitOps", "REST APIs", "E2E Testing", "Selenium", "SonarQube", "Liquibase", "Jenkins", "SQL"],
+    name: "Frontend & AI",
+    skills: ["React", "Next.js", "TypeScript", "LLMs", "RAG", "Vector Search", "OpenAI", "LangChain"],
   },
 ];
 

@@ -11,10 +11,10 @@ export function Skills() {
           id="skills"
           label="03 — Skills"
           title="Tech stack & tools"
-          subtitle="Languages, frameworks, cloud, and AI — what I use to ship."
+          subtitle="Backend • Cloud • AI"
         />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.name}

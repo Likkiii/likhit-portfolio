@@ -131,6 +131,15 @@ export function Navbar() {
                   </a>
                 </li>
               ))}
+              <li className="mt-2 border-t border-white/10 pt-3">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="block rounded-full border border-cyan-500/40 bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-4 py-3 text-center text-sm font-medium text-cyan-300"
+                  onClick={() => setOpen(false)}
+                >
+                  Get in touch
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}
