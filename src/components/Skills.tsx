@@ -5,7 +5,7 @@ import { TiltCard } from "./TiltCard";
 
 export function Skills() {
   return (
-    <section className="px-5 py-24">
+    <section id="skills" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="skills"

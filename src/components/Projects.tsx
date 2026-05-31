@@ -10,7 +10,7 @@ export function Projects() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section className="px-5 py-24">
+    <section id="projects" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="projects"
@@ -19,10 +19,11 @@ export function Projects() {
           subtitle="Side projects & hackathon wins."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
+              className="h-full"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -30,7 +31,7 @@ export function Projects() {
               onHoverStart={() => setHovered(project.title)}
               onHoverEnd={() => setHovered(null)}
             >
-              <TiltCard glow={hovered === project.title}>
+              <TiltCard glow={hovered === project.title} className="h-full">
                 <article className="glass group flex h-full flex-col overflow-hidden rounded-2xl transition hover:shadow-[0_0_40px_-12px_rgba(34,211,238,0.25)]">
                   {project.image && (
                     <div className="relative aspect-[16/9] overflow-hidden border-b border-white/5">
@@ -51,18 +52,19 @@ export function Projects() {
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-400">
                       {project.description}
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-md border border-violet-500/20 bg-violet-500/10 px-2 py-0.5 font-mono text-xs text-violet-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {(project.links.live || project.links.github) && (
-                      <div className="mt-5 flex gap-4 border-t border-white/5 pt-4">
+                    <div className="mt-auto pt-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-md border border-violet-500/20 bg-violet-500/10 px-2 py-0.5 font-mono text-xs text-violet-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      {(project.links.live || project.links.github || project.links.githubBackend) && (
+                        <div className="mt-4 flex gap-4 border-t border-white/5 pt-4">
                         {project.links.live && (
                           <a
                             href={project.links.live}
@@ -82,11 +84,23 @@ export function Projects() {
                             className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"
                           >
                             <GitHubIcon size={16} />
-                            Code
+                            {project.links.githubBackend ? "Frontend" : "Code"}
+                          </a>
+                        )}
+                        {project.links.githubBackend && (
+                          <a
+                            href={project.links.githubBackend}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"
+                          >
+                            <GitHubIcon size={16} />
+                            Backend
                           </a>
                         )}
                       </div>
                     )}
+                    </div>
                   </div>
                 </article>
               </TiltCard>

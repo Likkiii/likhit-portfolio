@@ -4,7 +4,6 @@ import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "./Icons";
 import { profile } from "../data/profile";
 import { useTypewriter } from "../hooks/useTypewriter";
 import { HeroVisual } from "./HeroVisual";
-import { StatsBar } from "./StatsBar";
 import { MagneticButton } from "./MagneticButton";
 
 function AnimatedName({ name }: { name: string }) {
@@ -120,7 +119,6 @@ export function Hero() {
             ))}
           </motion.div>
 
-          <StatsBar />
         </div>
 
         <HeroVisual />

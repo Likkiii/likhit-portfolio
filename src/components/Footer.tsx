@@ -5,14 +5,9 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/5 px-5 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
-        <p>
-          © {year} {profile.name}. Built with React, Vite & Tailwind.
-        </p>
-        <p className="font-mono text-xs text-slate-600">
-          SDE-I @ Exotel · VIT CSE &apos;24
-        </p>
-      </div>
+      <p className="text-center text-sm text-slate-500">
+        © {year} {profile.name}
+      </p>
     </footer>
   );
 }

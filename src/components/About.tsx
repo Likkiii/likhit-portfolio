@@ -5,13 +5,13 @@ import { SectionHeading } from "./SectionHeading";
 
 const facts = [
   { icon: MapPin, label: "Location", value: profile.location },
-  { icon: Briefcase, label: "Current", value: "SDE-I @ Exotel" },
-  { icon: Mail, label: "Email", value: profile.email },
+  { icon: Briefcase, label: "Current", value: "Software Engineer (SDE-I)" },
+  { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
 ];
 
 export function About() {
   return (
-    <section className="px-5 py-24">
+    <section id="about" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="about"
@@ -20,10 +20,10 @@ export function About() {
           subtitle="Engineer by day, athlete & dancer by night."
         />
 
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="space-y-6">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="glass rounded-2xl p-8"
           >
@@ -34,51 +34,61 @@ export function About() {
             ))}
           </motion.div>
 
-          <div className="space-y-4">
-            {facts.map(({ icon: Icon, label, value }, i) => (
+          <div className="grid auto-rows-fr gap-4 sm:grid-cols-3">
+            {facts.map(({ icon: Icon, label, value, href }, i) => (
               <motion.div
                 key={label}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="glass flex items-start gap-4 rounded-xl p-5"
+                transition={{ delay: i * 0.06 }}
+                className="glass flex h-full items-center gap-4 rounded-xl p-5"
               >
-                <div className="rounded-lg bg-cyan-500/10 p-2.5 text-cyan-400">
+                <div className="shrink-0 rounded-lg bg-cyan-500/10 p-2.5 text-cyan-400">
                   <Icon size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs uppercase tracking-wider text-slate-500">{label}</p>
-                  <p className="mt-1 text-sm text-white">{value}</p>
+                  {href ? (
+                    <a
+                      href={href}
+                      className="mt-1 block truncate text-sm text-white transition hover:text-cyan-300"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <p className="mt-1 text-sm text-white">{value}</p>
+                  )}
                 </div>
               </motion.div>
             ))}
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass rounded-xl p-5"
-            >
-              <p className="mb-3 text-xs uppercase tracking-wider text-slate-500">Things I love</p>
-              <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
-                {interests.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.03 }}
-                    whileHover={{ scale: 1.08, y: -2 }}
-                    className="flex cursor-default flex-col items-center gap-1 rounded-xl border border-white/5 bg-white/5 p-3 text-center transition hover:border-cyan-500/30 hover:bg-cyan-500/10"
-                  >
-                    <span className="text-xl">{item.emoji}</span>
-                    <span className="text-[11px] text-slate-400">{item.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="glass rounded-2xl p-6"
+          >
+            <p className="mb-4 text-xs uppercase tracking-wider text-slate-500">Things I love</p>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+              {interests.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.03 }}
+                  whileHover={{ scale: 1.06, y: -2 }}
+                  className="flex cursor-default flex-col items-center gap-1.5 rounded-xl border border-white/5 bg-white/5 p-3 text-center transition hover:border-cyan-500/30 hover:bg-cyan-500/10"
+                >
+                  <span className="text-2xl">{item.emoji}</span>
+                  <span className="text-[11px] leading-tight text-slate-400">{item.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

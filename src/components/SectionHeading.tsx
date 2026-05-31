@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
 
 interface SectionHeadingProps {
-  id: string;
+  id?: string;
   label: string;
   title: string;
   subtitle?: string;
 }
 
-export function SectionHeading({ id, label, title, subtitle }: SectionHeadingProps) {
+export function SectionHeading({ label, title, subtitle }: SectionHeadingProps) {
   return (
     <motion.div
-      id={id}
-      className="mb-12 scroll-mt-28"
+      className="mb-12"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}

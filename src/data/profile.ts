@@ -1,7 +1,7 @@
 export const profile = {
   name: "Likhit Ajeesh",
-  title: "Software Engineer @ Exotel",
-  tagline: "Engineer. Builder. Athlete. I ship things that work and move fast — on screen and on track.",
+  title: "Software Engineer",
+  tagline: "Software engineer by day. Sprinter, dancer, and K-pop enthusiast the rest of the time.",
   roles: [
     "Software Engineer",
     "Full-Stack Developer",
@@ -22,7 +22,7 @@ export const profile = {
     { value: 1800, suffix: "+", label: "Event Users Served" },
     { value: 3, suffix: "×", label: "Faster Releases" },
   ],
-  about: `Software engineer who loves building things end to end — from backend systems handling millions of events to frontends that people actually enjoy using. Currently at Exotel, working on real-time platforms, infrastructure automation, and everything in between.
+  about: `Software engineer who loves building things end to end — from backend systems handling millions of events to frontends that people actually enjoy using. I work on real-time platforms, infrastructure automation, and everything in between.
 
 Outside of code, I'm a national-level sprinter, a dancer, and someone who's always chasing the next thing to learn. I like clean architecture, fast deploys, and solving hard problems with simple solutions.`,
 };
@@ -98,28 +98,16 @@ export const education = [
 
 export const skillCategories = [
   {
-    name: "Languages",
-    skills: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "Bash"],
+    name: "Languages & Frameworks",
+    skills: ["Java", "Spring Boot", "Python", "FastAPI", "Celery", "JavaScript", "TypeScript", "React", "Next.js", "Vue", "Node.js", "Kafka", "Redux", "Tailwind CSS"],
   },
   {
-    name: "Backend",
-    skills: ["Spring Boot", "FastAPI", "Celery", "Node.js", "REST APIs", "Kafka", "gRPC"],
-  },
-  {
-    name: "Frontend",
-    skills: ["React", "Next.js", "Vue", "Tailwind CSS", "Redux"],
-  },
-  {
-    name: "Databases",
-    skills: ["PostgreSQL", "TimescaleDB", "MySQL", "MongoDB", "Redis", "pgvector"],
-  },
-  {
-    name: "DevOps & Cloud",
-    skills: ["Docker", "Kubernetes", "Helm", "ArgoCD", "Terraform", "Ansible", "AWS", "Jenkins", "CI/CD"],
+    name: "Databases & Infrastructure",
+    skills: ["PostgreSQL", "pgvector", "TimescaleDB", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Helm", "ArgoCD", "Terraform", "Ansible", "AWS", "ECR"],
   },
   {
     name: "Practices & Tools",
-    skills: ["System Design", "Microservices", "GitOps", "E2E Testing", "SonarQube", "Liquibase"],
+    skills: ["System Design", "Microservices", "CI/CD", "GitOps", "REST APIs", "E2E Testing", "Selenium", "SonarQube", "Liquibase", "Jenkins", "SQL"],
   },
 ];
 
@@ -128,7 +116,7 @@ export interface ProjectItem {
   description: string;
   period: string;
   tags: string[];
-  links: { live?: string; github?: string };
+  links: { live?: string; github?: string; githubBackend?: string };
   featured: boolean;
   image?: string;
 }
@@ -140,7 +128,10 @@ export const projects: ProjectItem[] = [
       "Portal for ACM-VIT's flagship coding event — 1800+ participants, roulette-based assignments, and live leaderboards.",
     period: "2022",
     tags: ["React", "Redux", "Tailwind"],
-    links: { live: "https://rcpc.acmvit.in/" },
+    links: {
+      live: "https://rcpc.acmvit.in/",
+      github: "https://github.com/ACM-VIT/reverse-coding-2022-dashboard",
+    },
     featured: true,
     image: "/projects/project-reverse-coding.jpg",
   },
@@ -150,7 +141,10 @@ export const projects: ProjectItem[] = [
       "End-to-end encrypted group chat with AES, real-time sockets, and JWT sessions.",
     period: "2023",
     tags: ["MERN", "Socket.io", "JWT", "AES"],
-    links: {},
+    links: {
+      github: "https://github.com/Likkiii/Hermes",
+      githubBackend: "https://github.com/Likkiii/Hermes-Backend",
+    },
     featured: true,
     image: "/projects/project-hermes.jpg",
   },
@@ -159,7 +153,7 @@ export const projects: ProjectItem[] = [
     description:
       "PWA for managing Minutes of Meeting docs — auth, CRUD, and team collaboration for 60+ members.",
     period: "2021",
-    tags: ["MERN", "PWA", "Markdown"],
+    tags: ["MERN", "PWA"],
     links: { github: "https://github.com/ACM-VIT/minutes-of-meeting-backend" },
     featured: true,
     image: "/projects/project-acta.jpg",

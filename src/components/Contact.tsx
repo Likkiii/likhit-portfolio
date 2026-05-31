@@ -7,7 +7,7 @@ import { MagneticButton } from "./MagneticButton";
 
 export function Contact() {
   return (
-    <section className="px-5 py-24">
+    <section id="contact" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="contact"

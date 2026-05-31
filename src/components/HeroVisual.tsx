@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 const lines = [
   { text: "const likhit = {", delay: 0 },
-  { text: '  role: "SDE-1 @ Exotel",', delay: 0.1, accent: true },
-  { text: '  stack: ["Java", "React", "K8s"],', delay: 0.2 },
+  { text: '  role: "Software Engineer",', delay: 0.1, accent: true },
+  { text: '  stack: ["Spring Boot", "Next.js", "K8s"],', delay: 0.2 },
   { text: "  loves: [", delay: 0.3 },
-  { text: '    "building things",', delay: 0.4, accent: true },
-  { text: '    "breaking PRs",', delay: 0.5, accent: true },
-  { text: '    "running fast"', delay: 0.6, accent: true },
+  { text: '    "automating workflows",', delay: 0.4, accent: true },
+  { text: '    "vibing to K-pop"', delay: 0.5, accent: true },
+  { text: '    "chasing speed and medals"', delay: 0.6, accent: true },
   { text: "  ],", delay: 0.7 },
   { text: "  coffee: true ☕", delay: 0.8, accent: true },
   { text: "};", delay: 0.9 },
@@ -17,7 +17,7 @@ const floatingTags = [
   { label: "React", x: "88%", y: "8%", delay: 0 },
   { label: "Java", x: "-8%", y: "35%", delay: 0.2 },
   { label: "K8s", x: "92%", y: "55%", delay: 0.4 },
-  { label: "TypeScript", x: "-5%", y: "78%", delay: 0.6 },
+  { label: "Python", x: "-5%", y: "78%", delay: 0.6 },
 ];
 
 export function HeroVisual() {
@@ -33,7 +33,7 @@ export function HeroVisual() {
             scale: { delay: 1 + tag.delay },
             y: { duration: 4 + tag.delay, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute z-10 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 font-mono text-xs text-cyan-300 backdrop-blur-sm"
+          className="absolute z-10 whitespace-nowrap rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 font-mono text-xs text-cyan-300 backdrop-blur-sm"
           style={{ left: tag.x, top: tag.y }}
         >
           {tag.label}

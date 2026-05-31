@@ -5,7 +5,7 @@ import { Trophy, Award } from "lucide-react";
 
 export function Education() {
   return (
-    <section className="px-5 py-24">
+    <section id="education" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="education"

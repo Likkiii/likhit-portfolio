@@ -8,7 +8,7 @@ export function Experience() {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
-    <section className="px-5 py-24">
+    <section id="experience" className="scroll-mt-24 px-5 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           id="experience"

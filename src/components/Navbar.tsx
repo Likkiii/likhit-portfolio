@@ -59,6 +59,10 @@ export function Navbar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className={`relative rounded-lg px-3 py-2 text-sm transition ${
                   active === link.id
                     ? "text-white"
@@ -113,7 +117,15 @@ export function Navbar() {
                     className={`block rounded-lg px-3 py-3 ${
                       active === link.id ? "bg-cyan-500/15 text-cyan-300" : "text-slate-300 hover:bg-white/5"
                     }`}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const targetId = link.id;
+                      setOpen(false);
+                      document.body.style.overflow = "";
+                      setTimeout(() => {
+                        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+                      }, 300);
+                    }}
                   >
                     {link.label}
                   </a>
