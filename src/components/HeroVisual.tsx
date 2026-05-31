@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const lines = [
   { text: "const likhit = {", delay: 0 },
-  { text: '  role: "Software Engineer",', delay: 0.1, accent: true },
+  { text: '  role: "Software Engineer-I",', delay: 0.1, accent: true },
   { text: '  stack: ["Spring Boot", "Next.js", "K8s"],', delay: 0.2 },
   { text: "  loves: [", delay: 0.3 },
   { text: '    "automating workflows",', delay: 0.4, accent: true },

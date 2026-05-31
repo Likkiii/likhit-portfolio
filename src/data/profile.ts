@@ -1,7 +1,7 @@
 export const profile = {
   name: "Likhit Ajeesh",
   title: "Software Engineer",
-  tagline: "Software engineer by day. Sprinter, dancer, and K-pop enthusiast the rest of the time.",
+  tagline: "Building scalable systems, AI-powered products, and ideas that matter.",
   roles: [
     "Software Engineer",
     "Full-Stack Developer",
@@ -90,20 +90,21 @@ export const education = [
   },
 ];
 
-export const skillCategories = [
-  {
-    name: "Backend",
-    skills: ["Java", "Spring Boot", "Python", "FastAPI", "Kafka", "PostgreSQL", "Redis", "Beanstalkd"],
-  },
-  {
-    name: "Cloud & Infrastructure",
-    skills: ["Docker", "Kubernetes", "Helm", "ArgoCD", "Terraform", "AWS", "CI/CD", "GitOps"],
-  },
-  {
-    name: "Frontend & AI",
-    skills: ["React", "Next.js", "TypeScript", "LLMs", "RAG", "Vector Search", "OpenAI", "LangChain"],
-  },
-];
+  export const skillCategories = [
+   {
+      name: "Full-Stack Engineering",
+      skills: ["Java", "Spring Boot", "Python", "React", "Next.js", "PostgreSQL", "Redis", "Kafka"],
+    },
+    {
+      name: "Cloud & Infrastructure",
+      skills: ["Docker", "Kubernetes", "AWS", "Terraform", "Jenkins", "ArgoCD", "GitOps"],
+    },
+    {
+      name: "AI Engineering",
+      skills: ["LLMs", "RAG", "OpenAI", "Vector Search", "LangChain"],
+    },
+  ];
+
 
 export interface ProjectItem {
   title: string;
@@ -189,7 +190,7 @@ export const interests: InterestItem[] = [
   { emoji: "🏸", label: "Badminton" },
   { emoji: "🚴", label: "Cycling" },
   { emoji: "🎮", label: "Gaming" },
-  { emoji: "🇰🇷", label: "Korean Culture" },
+  { emoji: "🍜", label: "Korean Culture" },
   { emoji: "🎬", label: "Anime" },
   { emoji: "☕", label: "Coffee" },
   { emoji: "✈️", label: "Travel" },
