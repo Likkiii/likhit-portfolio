@@ -90,20 +90,20 @@ export const education = [
   },
 ];
 
-  export const skillCategories = [
-   {
-      name: "Full-Stack Engineering",
-      skills: ["Java", "Spring Boot", "Python", "React", "Next.js", "PostgreSQL", "Redis", "Kafka"],
-    },
-    {
-      name: "Cloud & Infrastructure",
-      skills: ["Docker", "Kubernetes", "AWS", "Terraform", "Jenkins", "ArgoCD", "GitOps"],
-    },
-    {
-      name: "AI Engineering",
-      skills: ["LLMs", "RAG", "OpenAI", "Vector Search", "LangChain"],
-    },
-  ];
+export const skillCategories = [
+  {
+    name: "Full-Stack Engineering",
+    skills: ["Java", "Spring Boot", "Python", "React", "Next.js", "PostgreSQL", "Redis", "Kafka"],
+  },
+  {
+    name: "Cloud & Infrastructure",
+    skills: ["Docker", "Kubernetes", "AWS", "Terraform", "Jenkins", "ArgoCD", "GitOps"],
+  },
+  {
+    name: "AI Engineering",
+    skills: ["LLMs", "RAG", "OpenAI", "Vector Search", "LangChain"],
+  },
+];
 
 
 export interface ProjectItem {
@@ -112,7 +112,6 @@ export interface ProjectItem {
   period: string;
   tags: string[];
   links: { live?: string; github?: string; githubBackend?: string };
-  featured: boolean;
   image?: string;
 }
 
@@ -127,7 +126,6 @@ export const projects: ProjectItem[] = [
       live: "https://rcpc.acmvit.in/",
       github: "https://github.com/ACM-VIT/reverse-coding-2022-dashboard",
     },
-    featured: true,
     image: "/projects/project-reverse-coding.jpg",
   },
   {
@@ -140,7 +138,6 @@ export const projects: ProjectItem[] = [
       github: "https://github.com/Likkiii/Hermes",
       githubBackend: "https://github.com/Likkiii/Hermes-Backend",
     },
-    featured: true,
     image: "/projects/project-hermes.jpg",
   },
   {
@@ -150,7 +147,6 @@ export const projects: ProjectItem[] = [
     period: "2021",
     tags: ["MERN", "PWA"],
     links: { github: "https://github.com/ACM-VIT/minutes-of-meeting-backend" },
-    featured: true,
     image: "/projects/project-acta.jpg",
   },
 ];
@@ -159,19 +155,16 @@ export const awards = [
   {
     title: "Medallion of Honor — Collaboration Award",
     org: "Exotel · Q3 FY25-26",
-    year: "2025",
     highlight: true,
   },
   {
     title: "National-level Athlete",
     org: "CBSE Nationals — 100m, 200m, 4×100m Relay",
-    year: "2019",
     highlight: false,
   },
   {
     title: "School Topper — Science (96.2%)",
     org: "Indian School Muladha",
-    year: "2020",
     highlight: false,
   },
 ];

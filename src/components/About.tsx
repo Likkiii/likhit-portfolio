@@ -5,7 +5,7 @@ import { SectionHeading } from "./SectionHeading";
 
 const facts = [
   { icon: MapPin, label: "Location", value: profile.location },
-  { icon: Briefcase, label: "Current", value: "Software Engineer (SDE-I)" },
+  { icon: Briefcase, label: "Current", value: profile.title },
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
 ];
 
@@ -27,8 +27,8 @@ export function About() {
             viewport={{ once: true }}
             className="glass rounded-2xl p-6 sm:p-8"
           >
-            {profile.about.split("\n\n").map((para) => (
-              <p key={para.slice(0, 24)} className="mb-4 text-base leading-relaxed text-slate-300 last:mb-0 sm:text-lg">
+            {profile.about.split("\n\n").map((para, i) => (
+              <p key={i} className="mb-4 text-base leading-relaxed text-slate-300 last:mb-0 sm:text-lg">
                 {para}
               </p>
             ))}

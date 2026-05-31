@@ -41,8 +41,7 @@ export function Skills() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 + j * 0.03 }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        className="cursor-default rounded-lg border border-white/5 bg-white/5 px-2.5 py-1 text-xs text-slate-300 transition hover:border-cyan-500/30 hover:bg-cyan-500/10 hover:text-cyan-200"
+                        className="rounded-lg border border-white/5 bg-white/5 px-2.5 py-1 text-xs text-slate-300"
                       >
                         {skill}
                       </motion.span>

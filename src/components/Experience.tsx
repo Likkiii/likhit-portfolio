@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, ChevronDown, X } from "lucide-react";
 import { experience } from "../data/profile";
 import { SectionHeading } from "./SectionHeading";
 
 export function Experience() {
-  const [open, setOpen] = useState<Set<number>>(() => new Set([0]));
+  const [open, setOpen] = useState<Set<number>>(() => new Set());
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const toggle = (index: number) => {
     setOpen((prev) => {
@@ -16,6 +17,20 @@ export function Experience() {
       return next;
     });
   };
+
+  useEffect(() => {
+    if (!lightbox) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+      triggerRef.current?.focus();
+    };
+  }, [lightbox]);
 
   return (
     <section id="experience" className="scroll-mt-24 px-5 py-24">
@@ -30,6 +45,7 @@ export function Experience() {
         <div className="relative space-y-4 before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-cyan-500/50 before:to-violet-500/20 md:before:left-[11px] md:space-y-5">
           {experience.map((job, i) => {
             const isOpen = open.has(i);
+            const panelId = `job-panel-${i}`;
 
             return (
               <motion.article
@@ -49,6 +65,7 @@ export function Experience() {
                     type="button"
                     onClick={() => toggle(i)}
                     aria-expanded={isOpen}
+                    aria-controls={panelId}
                     className="flex w-full items-start gap-4 p-6 text-left md:p-8"
                   >
                     <div className="min-w-0 flex-1">
@@ -87,10 +104,12 @@ export function Experience() {
                   {job.badge && (
                     <div className="border-t border-white/5 px-6 pb-5 pt-4 md:px-8">
                       <motion.button
+                        ref={triggerRef}
                         type="button"
                         onClick={() => setLightbox(job.badge!.image)}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
+                        aria-label="View Medallion of Honor certificate"
                         className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2 text-sm font-medium text-amber-300 transition hover:border-amber-500/50 hover:bg-amber-500/20"
                       >
                         <Award size={16} />
@@ -100,6 +119,8 @@ export function Experience() {
                   )}
 
                   <motion.div
+                    id={panelId}
+                    role="region"
                     initial={false}
                     animate={{ height: isOpen ? "auto" : 0 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -111,9 +132,9 @@ export function Experience() {
                       }`}
                     >
                       <ul className={`space-y-2 ${job.badge ? "" : "mt-5"}`}>
-                        {job.highlights.map((point) => (
+                        {job.highlights.map((point, j) => (
                           <li
-                            key={point.slice(0, 40)}
+                            key={`${i}-${j}`}
                             className="flex gap-2 text-sm leading-relaxed text-slate-400"
                           >
                             <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan-400" />
@@ -148,6 +169,9 @@ export function Experience() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Certificate viewer"
             className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
           >
             <motion.div
@@ -161,11 +185,12 @@ export function Experience() {
               <button
                 type="button"
                 onClick={() => setLightbox(null)}
+                aria-label="Close certificate viewer"
                 className="absolute -right-3 -top-3 z-10 rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition hover:bg-white/20"
               >
                 <X size={18} />
               </button>
-              <img src={lightbox} alt="Certificate" className="rounded-2xl shadow-2xl" />
+              <img src={lightbox} alt="Medallion of Honor certificate" className="rounded-2xl shadow-2xl" />
             </motion.div>
           </motion.div>
         )}

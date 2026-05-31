@@ -48,7 +48,9 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <a
           href="#home"
-          className="group font-display text-lg font-bold tracking-tight text-white"
+          className="group text-2xl text-white"
+          style={{ fontFamily: "var(--font-cursive)" }}
+          aria-label="Likhit Ajeesh — Home"
         >
           LA
           <span className="text-cyan-400 transition group-hover:text-violet-400">.</span>
@@ -59,8 +61,7 @@ export function Navbar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
                   document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className={`relative rounded-lg px-3 py-2 text-sm transition ${
@@ -96,6 +97,8 @@ export function Navbar() {
           className="rounded-lg p-2 text-slate-300 hover:bg-white/10 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -107,6 +110,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-nav"
             className="border-t border-white/10 bg-[#07070b]/95 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">

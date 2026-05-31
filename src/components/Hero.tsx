@@ -31,15 +31,15 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 pb-16 pt-28"
+      className="relative flex min-h-screen flex-col justify-center px-5 pb-16 pt-28"
     >
       <div className="pointer-events-none absolute right-0 top-1/4 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:overflow-visible">
         <div>
           <p className="mb-3 mt-2 font-mono text-sm text-slate-500">Hello, world — I&apos;m</p>
 
-          <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
+          <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
             <AnimatedName name={first} />
             <br />
             <span className="gradient-text-animated">

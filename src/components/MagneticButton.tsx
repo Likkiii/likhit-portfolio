@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 
 interface MagneticButtonProps {
@@ -14,31 +14,28 @@ export function MagneticButton({
   className = "",
   external,
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const handleMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    el.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
+  const handleMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+    const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
+    setOffset({ x, y });
   };
 
-  const handleLeave = () => {
-    if (ref.current) ref.current.style.transform = "translate(0, 0)";
-  };
+  const handleLeave = () => setOffset({ x: 0, y: 0 });
 
   return (
     <motion.a
-      ref={ref}
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
+      animate={{ x: offset.x, y: offset.y }}
       whileTap={{ scale: 0.97 }}
-      className={`inline-block transition-transform duration-150 ${className}`}
+      transition={{ type: "spring", stiffness: 300, damping: 20, mass: 0.5 }}
+      className={`inline-block ${className}`}
     >
       {children}
     </motion.a>

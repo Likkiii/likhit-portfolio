@@ -16,7 +16,7 @@ export function Projects() {
           id="projects"
           label="04 — Projects"
           title="Things I've built"
-          subtitle="Side projects & hackathon wins."
+          subtitle="Selected projects & builds."
         />
 
         <div className="grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -39,6 +39,8 @@ export function Projects() {
                         src={project.image}
                         alt={`${project.title} cover`}
                         loading="lazy"
+                        width={640}
+                        height={360}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b0b12] via-transparent to-transparent" />

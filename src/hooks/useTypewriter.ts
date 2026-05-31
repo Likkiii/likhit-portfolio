@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useTypewriter(words: string[], typingMs = 80, pauseMs = 2200) {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const pauseTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => {
+    return () => clearTimeout(pauseTimer.current);
+  }, []);
 
   useEffect(() => {
     const current = words[index % words.length];
@@ -14,7 +19,7 @@ export function useTypewriter(words: string[], typingMs = 80, pauseMs = 2200) {
           const next = current.slice(0, text.length + 1);
           setText(next);
           if (next === current) {
-            setTimeout(() => setDeleting(true), pauseMs);
+            pauseTimer.current = setTimeout(() => setDeleting(true), pauseMs);
           }
         } else {
           const next = current.slice(0, text.length - 1);
