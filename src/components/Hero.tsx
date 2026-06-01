@@ -42,7 +42,7 @@ export function Hero() {
           <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
             <AnimatedName name={first} />
             <br />
-            <span className="gradient-text-animated">
+            <span className="gradient-text">
               <AnimatedName name={rest.join(" ")} />
             </span>
           </h1>
